@@ -1,6 +1,7 @@
 <script setup>
 import Button from "./components/Button.vue";
 import LastButton from "./components/LastButton.vue";
+import "./style.css";
 import { ref } from "vue";
 
 const buttons = [
@@ -73,6 +74,10 @@ const pressButton = (button) => {
   // Play the audio
   const audio = new Audio(getButton(button).audio);
   audio.play();
+
+  setTimeout(() => {
+    lastButton.value = null;
+  }, 2 * 60 * 1000);
 };
 </script>
 
